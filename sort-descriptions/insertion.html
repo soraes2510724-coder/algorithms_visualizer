@@ -1,47 +1,82 @@
 <!doctype html>
 <html lang="ko">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Insertion Sort — 정렬 알고리즘</title>
-  <link rel="stylesheet" href="sortStyle.css">
-</head>
-<body>
-  <header class="navbar">
-    <div class="logo">정렬 알고리즘 시각화 웹사이트</div>
-    <nav>
-      <a href="../index.html" class="nav-link">홈</a>
-      <a href="../htmls/big-o.html" class="nav-link">Big-O 표기법</a>
-      <a href="../htmls/algorithms.html" class="nav-link">알고리즘</a>
-      <a href="https://github.com/soraes2510724-coder/algorithm-visualizer" target="_blank" class="nav-link">GitHub</a>
-    </nav>
-  </header>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>Insertion Sort — 정렬 알고리즘</title>
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="sortStyle.css">
+	</head>
+	<body>
+		<header class="navbar">
+			<div class="logo">정렬 알고리즘 시각화 웹사이트</div>
+			<nav>
+				<a href="../index.html" class="nav-link">홈</a>
+				<a href="../htmls/big-o.html" class="nav-link">Big-O 표기법</a>
+				<a href="../htmls/algorithms.html" class="nav-link">알고리즘</a>
+				<a href="https://github.com/soraes2510724-coder/algorithms_visualizer" target="_blank" class="nav-link">GitHub</a>
+			</nav>
+		</header>
 
-  <div class="container">
-    <h1>Insertion Sort (삽입 정렬)</h1>
-    <p>
-      <span class="highlight">삽입 정렬</span>은 이미 정렬된 부분에 새로운 원소를 알맞은 위치에 삽입하며 정렬을 유지합니다.  
-    </p>
+		<div class="container">
+			<h1>Insertion Sort (삽입 정렬)</h1>
+			<p>
+				<span class="highlight">삽입 정렬</span>은 이미 정렬된 부분에 새로운 원소를 알맞은 위치에 삽입하며 정렬을 유지합니다.  
+			</p>
 
-    <h2>🧠 작동 원리</h2>
-    <p>
-      1️⃣ 두 번째 원소부터 시작해 앞쪽 정렬된 부분과 비교합니다.<br>
-      2️⃣ 자신보다 큰 원소가 나오면 그 뒤에 삽입합니다.<br>
-      3️⃣ 배열 끝까지 반복합니다.
-    </p>
+			<h2>🧠 작동 원리</h2>
+			<p>
+				1️⃣ 두 번째 원소부터 시작해 앞쪽 정렬된 부분과 비교합니다.<br>
+				2️⃣ 자신보다 큰 원소가 나오면 적절한 위치에 삽입합니다.<br>
+				3️⃣ 배열 끝까지 반복합니다.
+			</p>
 
-    <h2>⚙️ 시간 복잡도</h2>
-    <p>평균/최악 <b>O(n²)</b>, 최선(이미 정렬된 경우) <b>O(n)</b>.</p>
+			<h2>⚙️ 시간 복잡도</h2>
+			<p>평균/최악 <b>O(n²)</b>, 최선(이미 정렬된 경우) <b>O(n)</b>.</p>
 
-    <h2>✅ 장단점</h2>
-    <ul>
-      <li>작은 데이터셋에 효율적</li>
-      <li>거의 정렬된 데이터에서 매우 빠름</li>
-      <li>하지만 큰 배열에서는 비효율적</li>
-    </ul>
+			<h2>‼️ 알고리즘 시각화</h2>
+			<div class="panel">
+				<div class="controls">
+					<div class="input-group">
+						<i class="fas fa-layer-group"></i>
+						<input type="number" id="boxCount" min="5" max="10" value="7">
+					</div>
 
-    <a href="../index.html" class="btn">시각화로 이동</a><br>
-    <a href="../htmls/algorithms.html" class="back">← 알고리즘 목록으로 돌아가기</a>
-  </div>
-</body>
+					<button class="btn-gen" onclick="generateArray()">
+						<i class="fas fa-redo"></i> Reset
+					</button>
+					<button class="btn-start" onclick="startSort('Insertion')" id="startBtn">
+						<i class="fas fa-play"></i> Run Sort
+					</button>
+					<button class="btn-stop" onclick="stopSort()" id="stopBtn" disabled>
+						<i class="fas fa-stop"></i> Stop
+					</button>
+				</div>
+
+				<div class="visual-area" id="container">
+				</div>
+
+				<div class="speed-control">
+					<span>SPEED</span>
+					<input type="range" id="speedRange" min="100" max="1500" value="800" oninput="updateSpeed()">
+					<span id="speedDisplay">Normal</span>
+				</div>
+
+				<div class="log-panel" id="logPanel">
+					<div class="log-entry">준비 완료. 'Reset'으로 배열 생성 후 'Run Sort'를 눌러주세요.</div>
+				</div>
+			</div>
+
+			<h2>✅ 장단점</h2>
+			<ul>
+				<li>작은 데이터셋에 효율적</li>
+				<li>거의 정렬된 데이터에서 매우 빠름</li>
+				<li>하지만 큰 배열에서는 비효율적</li>
+			</ul>
+
+			<a href="../index.html" class="btn">시각화로 이동</a><br>
+			<a href="../htmls/algorithms.html" class="back">← 알고리즘 목록으로 돌아가기</a>
+		</div>
+		<script src="visualizer.js"></script>
+	</body>
 </html>

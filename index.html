@@ -1,70 +1,70 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>정렬 알고리즘 시각화 웹사이트</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <header class="navbar">
-    <div class="logo">정렬 알고리즘 시각화 웹사이트</div>
-    <nav>
-      <a href="index.html" class="nav-link">홈</a>
-      <a href="htmls/big-o.html" class="nav-link">Big-O 표기법</a>
-      <a href="htmls/algorithms.html" class="nav-link">알고리즘</a>
-      <a href="https://github.com/soraes2510724-coder/algorithm-visualizer" target="_blank" class="nav-link">GitHub</a>
-    </nav>
-  </header>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>정렬 알고리즘 시각화 웹사이트</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<header class="navbar">
+			<div class="logo">정렬 알고리즘 시각화 웹사이트</div>
+			<nav>
+				<a href="index.html" class="nav-link">홈</a>
+				<a href="htmls/big-o.html" class="nav-link">Big-O 표기법</a>
+				<a href="htmls/algorithms.html" class="nav-link">알고리즘</a>
+				<a href="https://github.com/soraes2510724-coder/algorithms_visualizer" target="_blank" class="nav-link">GitHub</a>
+			</nav>
+		</header>
 
-  <main class="container">
-    <section class="card shadow">
-      <div class="card-header">
-        <h2>시각화 제어</h2>
-      </div>
-      <div class="controls">
-        <label>알고리즘:
-          <select id="algorithm">
-            <option>Bubble Sort</option>
-            <option>Selection Sort</option>
-            <option>Insertion Sort</option>
-            <option>Merge Sort</option>
-            <option>Quick Sort</option>
-            <option>Heap Sort</option>
-          </select>
-        </label>
-        <label>크기:
-          <input type="range" id="size" min="10" max="100" value="30" />
-        </label>
-        <label>속도:
-          <input type="range" id="speed" min="1" max="200" value="120" />
-        </label>
-      </div>
+		<main class="container">
+			<section class="card shadow">
+				<div class="card-header">
+					<h2>시각화 제어</h2>
+				</div>
+				<div class="controls">
+					<label>알고리즘:
+						<select id="algorithm">
+							<option>Bubble Sort</option>
+							<option>Selection Sort</option>
+							<option>Insertion Sort</option>
+							<option>Merge Sort</option>
+							<option>Quick Sort</option>
+							<option>Heap Sort</option>
+						</select>
+					</label>
+					<label>크기:
+						<input type="range" id="size" min="10" max="100" value="30" />
+					</label>
+					<label>속도:
+						<input type="range" id="speed" min="1" max="200" value="120" />
+					</label>
+				</div>
 
-      <div class="playbar">
-        <button id="playBtn">▶ 시작</button>
-        <button id="pauseBtn" class="secondary">⏸ 정지</button>
-        <button id="stepBtn" class="secondary">⏭ 단계</button>
-        <button id="shuffleBtn" class="secondary">🔀 섞기</button>
-        <button id="sortedBtn" class="secondary">📈 정렬된 배열</button>
-        <span class="stepcount">단계 수: <span id="stepCount">0</span></span>
-      </div>
+				<div class="playbar">
+					<button id="playBtn">▶ 시작</button>
+					<button id="pauseBtn" class="secondary">⏸ 정지</button>
+					<button id="stepBtn" class="secondary">⏭ 단계</button>
+					<button id="shuffleBtn" class="secondary">🔀 섞기</button>
+					<button id="sortedBtn" class="secondary">📈 정렬된 배열</button>
+					<span class="stepcount">단계 수: <span id="stepCount">0</span></span>
+				</div>
 
-      <div id="canvas" class="canvas"></div>
+				<div id="canvas" class="canvas"></div>
 
-      <div class="legend">
-        <div class="item"><span class="swatch step"></span> 비교 단계</div>
-        <div class="item"><span class="swatch swap"></span> 교환 단계</div>
-        <div class="item"><span class="swatch overwrite"></span> 덮어쓰기</div>
-        <div class="item"><span class="swatch done"></span> 완료</div>
-      </div>
-    </section>
-  </main>
+				<div class="legend">
+					<div class="item"><span class="swatch step"></span> 비교 단계</div>
+					<div class="item"><span class="swatch swap"></span> 교환 단계</div>
+					<div class="item"><span class="swatch overwrite"></span> 덮어쓰기</div>
+					<div class="item"><span class="swatch done"></span> 완료</div>
+				</div>
+			</section>
+		</main>
 
-  <footer class="footer">
-    <p>© 2025 정렬 알고리즘 시각화 웹사이트</p>
-  </footer>
+		<footer class="footer">
+			<p>© 2025 정렬 알고리즘 시각화 웹사이트</p>
+		</footer>
 
-  <script type="module" src="main.js"></script>
-</body>
+		<script type="module" src="main.js"></script>
+	</body>
 </html>

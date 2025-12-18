@@ -1,161 +1,163 @@
 <!doctype html>
 <html lang="ko">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>정렬 알고리즘 목록</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    body {
-      background: #f8fafc;
-      color: #1f2937;
-      font-family: Inter, system-ui, -apple-system, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>정렬 알고리즘 목록</title>
+		<link rel="stylesheet" href="../style.css">
+		<style>
+			body {
+				background: #f8fafc;
+				color: #1f2937;
+				font-family: Inter, system-ui, -apple-system, sans-serif;
+				margin: 0;
+				padding: 0;
+			}
 
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 16px 32px;
-      background: rgba(255,255,255,0.9);
-      backdrop-filter: blur(8px);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
+			.navbar {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				padding: 16px 32px;
+				background: rgba(255,255,255,0.9);
+				backdrop-filter: blur(8px);
+				box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+				position: sticky;
+				top: 0;
+				z-index: 10;
+			}
 
-    .nav-links {
-      display: flex;
-      gap: 20px;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
+			.nav-links {
+				display: flex;
+				gap: 20px;
+				list-style: none;
+				margin: 0;
+				padding: 0;
+			}
 
-    .nav-link {
-      color: #1f2937;
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.2s;
-    }
+			.nav-link {
+				color: #1f2937;
+				text-decoration: none;
+				font-weight: 600;
+				transition: color 0.2s;
+			}
 
-    .nav-link:hover {
-      color: #2563eb;
-    }
+			.nav-link:hover {
+				color: #2563eb;
+			}
 
-    .container {
-      max-width: 1100px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
+			.container {
+				max-width: 1100px;
+				margin: 40px auto;
+				padding: 0 20px;
+			}
 
-    h1 {
-      font-size: 28px;
-      margin-bottom: 24px;
-      text-align: center;
-    }
+			h1 {
+				font-size: 28px;
+				margin-bottom: 24px;
+				text-align: center;
+			}
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
-    }
+			.grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+				gap: 24px;
+			}
 
-    .card {
-      background: white;
-      border-radius: 16px;
-      padding: 24px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
+			.card {
+				background: white;
+				border-radius: 16px;
+				padding: 24px;
+				box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+				transition: transform 0.2s, box-shadow 0.2s;
+			}
 
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    }
+			.card:hover {
+				transform: translateY(-6px);
+				box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+			}
 
-    .card h2 {
-      margin-top: 0;
-      color: #2563eb;
-      font-size: 20px;
-    }
+			.card h2 {
+				margin-top: 0;
+				color: #2563eb;
+				font-size: 20px;
+			}
 
-    .card p {
-      color: #4b5563;
-      font-size: 15px;
-      line-height: 1.5;
-    }
+			.card p {
+				color: #4b5563;
+				font-size: 15px;
+				line-height: 1.5;
+			}
 
-    .btn {
-      display: inline-block;
-      background: #2563eb;
-      color: white;
-      text-decoration: none;
-      padding: 10px 16px;
-      border-radius: 8px;
-      font-weight: 600;
-      margin-top: 12px;
-      transition: background 0.2s;
-    }
+			.btn {
+				display: inline-block;
+				background: #2563eb;
+				color: white;
+				text-decoration: none;
+				padding: 10px 16px;
+				border-radius: 8px;
+				font-weight: 600;
+				margin-top: 12px;
+				transition: background 0.2s;
+			}
 
-    .btn:hover {
-      background: #1e40af;
-    }
-  </style>
-</head>
-<body>
-  <header class="navbar">
-    <div class="logo">정렬 알고리즘 시각화 웹사이트</div>
-    <nav>
-      <a href="../index.html" class="nav-link">홈</a>
-      <a href="big-o.html" class="nav-link">Big-O 표기법</a>
-      <a href="algorithms.html" class="nav-link active">알고리즘</a>
-      <a href="https://github.com/soraes2510724-coder/algorithm-visualizer" class="nav-link">GitHub</a>
-     </nav>
-  </header>
+			.btn:hover {
+				background: #1e40af;
+			}
+		</style>
+	</head>
+	<body>
+		<header class="navbar">
+			<div class="logo">정렬 알고리즘 시각화 웹사이트</div>
+			<nav>
+				<a href="../index.html" class="nav-link">홈</a>
+				<a href="big-o.html" class="nav-link">Big-O 표기법</a>
+				<a href="algorithms.html" class="nav-link active">알고리즘</a>
+				<a href="https://github.com/soraes2510724-coder/algorithms_visualizer" class="nav-link">GitHub</a>
+			</nav>
+		</header>
 
-  <div class="container">
-    <h1>정렬 알고리즘 목록</h1>
-    <div class="grid">
-      <div class="card">
-        <h2>Bubble Sort</h2>
-        <p>인접한 두 원소를 비교해 큰 값을 뒤로 보내는 단순한 정렬 알고리즘입니다. 구현이 쉽지만 느립니다.</p>
-        <a href="../sort-descriptions/bubble.html" class="btn">자세히 보기</a>
-      </div>
+		<div class="container">
+			<h1>정렬 알고리즘 목록</h1>
+			<div class="grid">
+				<div class="card">
+					<h2>Bubble Sort</h2>
+					<p>인접한 두 원소를 비교해 큰 값을 뒤로 보내는 단순한 정렬 알고리즘입니다. 구현이 쉽지만 느립니다.</p>
+					<a href="../sort-descriptions/bubble.html" class="btn">자세히 보기</a>
+				</div>
 
-      <div class="card">
-        <h2>Selection Sort</h2>
-        <p>매 단계에서 가장 작은(또는 큰) 원소를 선택하여 앞으로 보내는 방식의 정렬입니다. 비교 횟수가 많습니다.</p>
-        <a href="../sort-descriptions/selection.html" class="btn">자세히 보기</a>
-      </div>
+				<div class="card">
+					<h2>Selection Sort</h2>
+					<p>매 단계에서 가장 작은(또는 큰) 원소를 선택하여 앞으로 보내는 방식의 정렬입니다. 비교 횟수가 많습니다.</p>
+					<a href="../sort-descriptions/selection.html" class="btn">자세히 보기</a>
+				</div>
 
-      <div class="card">
-        <h2>Insertion Sort</h2>
-        <p>배열의 앞부분을 정렬된 상태로 유지하며, 새로운 원소를 올바른 위치에 삽입해 나갑니다.</p>
-        <a href="../sort-descriptions/insertion.html" class="btn">자세히 보기</a>
-      </div>
+				<div class="card">
+					<h2>Insertion Sort</h2>
+					<p>배열의 앞부분을 정렬된 상태로 유지하며, 새로운 원소를 올바른 위치에 삽입해 나갑니다.</p>
+					<a href="../sort-descriptions/insertion.html" class="btn">자세히 보기</a>
+				</div>
 
-      <div class="card">
-        <h2>Merge Sort</h2>
-        <p>분할 정복 방식을 이용한 안정적인 정렬 알고리즘입니다. 재귀적으로 배열을 나누고 합칩니다.</p>
-        <a href="../sort-descriptions/merge.html" class="btn">자세히 보기</a>
-      </div>
+				<div class="card">
+					<h2>Merge Sort</h2>
+					<p>분할 정복 방식을 이용한 안정적인 정렬 알고리즘입니다. 재귀적으로 배열을 나누고 합칩니다.</p>
+					<a href="../sort-descriptions/merge.html" class="btn">자세히 보기</a>
+				</div>
 
-      <div class="card">
-        <h2>Quick Sort</h2>
-        <p>피벗을 기준으로 작은 값과 큰 값을 나누어 재귀적으로 정렬하는 효율적인 알고리즘입니다.</p>
-        <a href="../sort-descriptions/quick.html" class="btn">자세히 보기</a>
-      </div>
+				<div class="card">
+					<h2>Quick Sort</h2>
+					<p>피벗을 기준으로 작은 값과 큰 값을 나누어 재귀적으로 정렬하는 효율적인 알고리즘입니다.</p>
+					<a href="../sort-descriptions/quick.html" class="btn">자세히 보기</a>
+				</div>
 
-      <div class="card">
-        <h2>Heap Sort</h2>
-        <p>힙 자료구조를 이용해 가장 큰 값을 차례로 꺼내며 정렬합니다. 추가 메모리가 거의 필요 없습니다.</p>
-        <a href="../sort-descriptions/heap.html" class="btn">자세히 보기</a>
-      </div>
-    </div>
-  </div>
-</body>
+				<div class="card">
+					<h2>Heap Sort</h2>
+					<p>힙 자료구조를 이용해 가장 큰 값을 차례로 꺼내며 정렬합니다. 추가 메모리가 거의 필요 없습니다.</p>
+					<a href="../sort-descriptions/heap.html" class="btn">자세히 보기</a>
+				</div>
+			</div>
+			<a href="../index.html" class="back">← 홈으로 돌아가기</a>
+			<a href="big-o.html" class="back">← Big-O 페이지로 돌아가기</a>
+		</div>
+	</body>
 </html>

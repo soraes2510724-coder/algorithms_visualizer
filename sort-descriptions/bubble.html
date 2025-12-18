@@ -1,50 +1,85 @@
 <!doctype html>
 <html lang="ko">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Bubble Sort — 정렬 알고리즘</title>
-  <link rel="stylesheet" href="sortStyle.css">
-</head>
-<body>
-  <header class="navbar">
-    <div class="logo">정렬 알고리즘 시각화 웹사이트</div>
-    <nav>
-      <a href="../index.html" class="nav-link">홈</a>
-      <a href="../htmls/big-o.html" class="nav-link">Big-O 표기법</a>
-      <a href="../htmls/algorithms.html" class="nav-link">알고리즘</a>
-      <a href="https://github.com/soraes2510724-coder/algorithm-visualizer" target="_blank" class="nav-link">GitHub</a>
-    </nav>
-  </header>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>Bubble Sort — 정렬 알고리즘</title>
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="sortStyle.css">
+	</head>
+	<body>
+		<header class="navbar">
+			<div class="logo">정렬 알고리즘 시각화 웹사이트</div>
+			<nav>
+				<a href="../index.html" class="nav-link">홈</a>
+				<a href="../htmls/big-o.html" class="nav-link">Big-O 표기법</a>
+				<a href="../htmls/algorithms.html" class="nav-link">알고리즘</a>
+				<a href="https://github.com/soraes2510724-coder/algorithms_visualizer" target="_blank" class="nav-link">GitHub</a>
+			</nav>
+		</header>
 
-  <div class="container">
-    <h1>Bubble Sort (버블 정렬)</h1>
-    <p>
-      <span class="highlight">버블 정렬</span>은 인접한 두 원소를 비교하여 잘못된 순서라면 서로 교환하는 방식으로
-      배열을 정렬하는 가장 단순한 알고리즘 중 하나입니다.  
-      작은 값이 한 단계씩 앞으로 “버블처럼 올라오며” 정렬된다는 점에서 이름이 유래되었습니다.
-    </p>
+		<div class="container">
+			<h1>Bubble Sort (버블 정렬)</h1>
+			<p>
+				<span class="highlight">버블 정렬</span>은 인접한 두 원소를 비교하여 잘못된 순서라면 서로 교환하는 방식으로
+				배열을 정렬하는 가장 단순한 알고리즘 중 하나입니다.  
+				작은 값이 한 단계씩 앞으로 “버블처럼 올라오며” 정렬된다는 점에서 이름이 유래되었습니다.
+			</p>
 
-    <h2>🧠 작동 원리</h2>
-    <p>
-      1️⃣ 첫 번째와 두 번째 원소를 비교합니다.<br>
-      2️⃣ 큰 값을 뒤로 보내고 다음 쌍으로 이동합니다.<br>
-      3️⃣ 한 바퀴를 돌면 가장 큰 값이 맨 끝으로 갑니다.<br>
-      4️⃣ 이를 반복하면서 남은 구간을 정렬합니다.
-    </p>
+			<h2>🧠 작동 원리</h2>
+			<p>
+				1️⃣ 첫 번째와 두 번째 원소를 비교합니다.<br>
+				2️⃣ 큰 값을 뒤로 보내고 다음 쌍으로 이동합니다.<br>
+				3️⃣ 한 바퀴를 돌면 가장 큰 값이 맨 끝으로 갑니다.<br>
+				4️⃣ 이를 반복하면서 남은 구간을 정렬합니다.
+			</p>
 
-    <h2>⚙️ 시간 복잡도</h2>
-    <p>평균 및 최악의 경우 시간 복잡도는 <b>O(n²)</b>이며, 최선의 경우(이미 정렬된 경우)는 <b>O(n)</b>입니다.</p>
+			<h2>⚙️ 시간 복잡도</h2>
+			<p>평균 및 최악의 경우 시간 복잡도는 <b>O(n²)</b>이며, 최선의 경우(이미 정렬된 경우)는 <b>O(n)</b>입니다.</p>
 
-    <h2>✅ 장단점</h2>
-    <ul>
-      <li>구현이 매우 간단함</li>
-      <li>추가 메모리가 거의 필요하지 않음</li>
-      <li>하지만 속도가 매우 느림 (O(n²))</li>
-    </ul>
+			<h2>‼️ 알고리즘 시각화</h2>
+			<div class="panel">
+				<div class="controls">
+					<div class="input-group">
+						<i class="fas fa-layer-group"></i>
+						<input type="number" id="boxCount" min="5" max="10" value="7">
+					</div>
 
-    <a href="../index.html" class="btn">시각화로 이동</a><br>
-    <a href="../htmls/algorithms.html" class="back">← 알고리즘 목록으로 돌아가기</a>
-  </div>
-</body>
+					<button class="btn-gen" onclick="generateArray()">
+						<i class="fas fa-redo"></i> Reset
+					</button>
+					<button class="btn-start" onclick="startSort('Bubble')" id="startBtn">
+						<i class="fas fa-play"></i> Run Sort
+					</button>
+					<button class="btn-stop" onclick="stopSort()" id="stopBtn" disabled>
+						<i class="fas fa-stop"></i> Stop
+					</button>
+				</div>
+
+				<div class="visual-area" id="container">
+				</div>
+
+				<div class="speed-control">
+					<span>SPEED</span>
+					<input type="range" id="speedRange" min="100" max="1500" value="800" oninput="updateSpeed()">
+					<span id="speedDisplay">Normal</span>
+				</div>
+
+				<div class="log-panel" id="logPanel">
+					<div class="log-entry">준비 완료. 'Reset'으로 배열 생성 후 'Run Sort'를 눌러주세요.</div>
+				</div>
+			</div>
+
+			<h2>✅ 장단점</h2>
+			<ul>
+				<li>구현이 매우 간단함</li>
+				<li>추가 메모리가 거의 필요하지 않음</li>
+				<li>하지만 속도가 매우 느림 (O(n²))</li>
+			</ul>
+
+			<a href="../index.html" class="btn">시각화로 이동</a><br>
+			<a href="../htmls/algorithms.html" class="back">← 알고리즘 목록으로 돌아가기</a>
+		</div>
+		<script src="visualizer.js"></script>
+	</body>
 </html>
