@@ -1,22 +1,21 @@
 :root {
-	--bg-color: #fdfbf7;       /* 따뜻한 크림 화이트 */
+	--bg-color: #fdfbf7;
 	--card-bg: #ffffff;
-	--text-color: #2c2c2c;     /* 부드러운 검정 */
-	--heading-font: 'Playfair Display', serif; /* 우아한 세리프 */
+	--text-color: #2c2c2c;
+	--heading-font: 'Playfair Display', serif;
 	--body-font: 'Inter', sans-serif;
 
 	--border-color: #e6e1d6;
-	--accent-primary: #1a1a1a; /* 미니멀한 블랙 포인트 */
+	--accent-primary: #1a1a1a;
 	--accent-hover: #4a4a4a;
 
 	--box-bg: #ffffff;
 	--box-border: #dcd7cd;
 	--box-shadow: 0 4px 20px rgba(0,0,0,0.03);
 
-	/* 박스 색상 (파스텔 톤) */
-	--pivot-color: #d4a373;    /* 샌드 베이지 */
-	--left-color: #a8d5ba;      /* 세이지 그린 */
-	--right-color: #f28482;     /* 뮤트 핑크 */
+	--pivot-color: #ff7e00;
+	--left-color: #00d254;
+	--right-color: #ff0500;
 	--fixed-color: #e5e5e5;
 
 	--bg: #f9fafb;
@@ -118,18 +117,6 @@ p {
 .btn:hover {
 	background: #1e40af;
 }
-
-.back {
-	color: #475569;
-	margin-top: 24px;
-	display: inline-block;
-	text-decoration: none;
-}
-
-.back:hover {
-	color: #1e40af;
-}
-
 
 
 /* 메인 패널 */
